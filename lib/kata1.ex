@@ -58,7 +58,6 @@ defmodule Kata1 do
 
 
   def comp([], []),   do: true
-  def comp(nil, nil), do: false
   def comp(nil, _),   do: false
   def comp(_, nil),   do: false
   def comp(_, []),    do: false
@@ -66,9 +65,6 @@ defmodule Kata1 do
 
   def comp(a1, a2) do
     (a1 |> Enum.map(&(&1/1))) -- (a2 |> Enum.map(&(:math.sqrt(&1))))
-    |> result
+    |> Enum.empty?
   end
-
-  defp result([]), do: true
-  defp result(_), do: false
 end
